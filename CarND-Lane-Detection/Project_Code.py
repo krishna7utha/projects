@@ -220,10 +220,6 @@ def search_around_poly(binary_warped):
     nonzeroy = np.array(nonzero[0])
     nonzerox = np.array(nonzero[1])
     
-    ### TO-DO: Set the area of search based on activated x-values ###
-    ### within the +/- margin of our polynomial function ###
-    ### Hint: consider the window areas for the similarly named variables ###
-    ### in the previous quiz, but change the windows to our new search area ###
     left_lane_inds = ((nonzerox > (left_fit[0]*(nonzeroy**2) + left_fit[1]*nonzeroy + 
                     left_fit[2] - margin)) & (nonzerox < (left_fit[0]*(nonzeroy**2) + 
                     left_fit[1]*nonzeroy + left_fit[2] + margin)))
@@ -285,7 +281,6 @@ def fit_polynomial(binary_warped):
     # We'll choose the maximum y-value, corresponding to the bottom of the image
     y_eval = np.max(ploty)
     
-    ##### TO-DO: Implement the calculation of R_curve (radius of curvature) #####
     left_curverad  = ( (1+(2*left_fit[0]*y_eval+left_fit[1])**2)**1.5) / abs(2*left_fit[0]) 
     right_curverad = ( (1+(2*right_fit[0]*y_eval+right_fit[1])**2)**1.5) / abs(2*right_fit[0])
 
